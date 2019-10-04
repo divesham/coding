@@ -1,0 +1,48 @@
+#include <bits/stdc++.h> 
+#define ll long long int
+using namespace std;
+ll revese_num(ll N){
+    int len = 0;
+    int arr[20];
+    // ===========removing leading "0"==========
+    while(N){
+        if(N%10 == 0){
+            N=N/10;
+        }else{
+            break;
+        }
+    }
+    // ==========creting array to store the digit=======
+    int i = 0;
+    while(N){
+      arr[i] = N%10;
+      N = N/10;
+      len++;
+      i++;
+    }
+    // =============making reverse number using arr======
+ 
+ ll temp  = 0;
+ int j = 0;
+ for(int i =len-1;i>=0;i--){
+     temp += arr[j]*pow(10,i);
+     j++;
+ }
+ return temp;
+}
+int main() {
+	 int t;
+	 cin>>t;
+	 ll a ,b, c;
+	 a = b = c = 0;
+	 while(t--){
+	    cin>>a>>b;
+	    a = revese_num(a);
+	    b = revese_num(b);
+	    c = a+b;
+	     c =revese_num(c);
+	    cout<<c<<endl;
+	 }
+ 
+	return 0;
+} 
